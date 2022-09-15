@@ -62,6 +62,21 @@ def user_file_name_extension
     puts "Pathname: /user/system"
 end 
 
+def  check_three_numbers_by_small
+    nambers = []
+    for i in (0..2)
+      puts "Input your namber:"
+      nambers[i] = gets.to_i
+    end
+
+    for namber in nambers do
+      if namber.to_i <= 10
+        puts true
+      else 
+        puts false
+      end
+    end
+end
 
 
 
