@@ -78,6 +78,102 @@ def  check_three_numbers_by_small
     end
 end
 
+def  check_three_numbers_by_small_not_both
+
+    nambers = []
+    for i in (0..2)
+      puts "Input your namber:"
+      nambers[i] = gets.to_i
+    end
+
+    check_namber=[]
+    true_count = 0
+    i=0
+    for namber in nambers do
+      if namber.to_i <= 10
+         check_namber[i] = true
+         true_count += 1
+      else 
+         check_namber[i] = false
+      end
+      i += 1
+    end
+
+    if true_count <= 1 
+        puts check_namber
+    else 
+        puts false
+    end
+
+end
+
+def print_here_example_document
+    document = <<-DOC
+    Sample string :
+    a string that you "don't" have to escape
+    This
+    is a ....... multi-line
+    heredoc string --------> example
+    DOC
+    
+    puts document
+end 
+
+def check_string_and_add_if_in_start
+    puts "Enter our string: " 
+    string = gets.chomp
+    
+    if string =~ /^if/
+        puts string
+    else 
+        puts "if " +  string 
+    end
+end
+
+def check_string_by_length_and_return_n
+
+    puts "Enter our string: " 
+    string = gets.chomp
+    puts "Enter times: " 
+    n = gets.to_i
+
+    if string.length < 3 
+        string = string + " whatever"   
+    end
+
+    n.times { puts string}
+end
 
 
+def sphere_volume_by_radius 
+    include Math
+    puts "Please enter the radius of sphere :"
+    radius  = gets.to_f
+    volume = 4/3 * PI * (radius**3)  
+    puts "Volume of circle:" + volume.to_s
+end
 
+def swap_first_and_last_characters 
+    puts "Enter our string: " 
+    string = gets.chomp
+    fist_character =  string.split(//).first 
+    last_character =  string.split(//).last
+    midle_character = string[1..-2]
+    puts last_character+midle_character+fist_character
+end
+
+def  check_two_numbers_equals
+    puts "Enter fist namber : "
+    fist_namber = gets.to_i
+    puts  "Enter second namber : "
+    second_namber = gets.to_i
+
+    if   fist_namber == 20 || second_namber == 20
+        puts true
+    else
+        sum = fist_namber + second_namber
+        puts sum
+    end  
+end
+
+check_two_numbers_equals
