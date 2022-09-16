@@ -34,13 +34,9 @@ end
 def check_string_by_if_start
     puts "Enter our string: " 
     string = gets.chomp
-    if string =~ /^if/
-        puts true
-    else 
-        puts false 
-    end
+    puts string =~ /^if/
 end
-
+check_string_by_if_start
 def user_fist_last_name_swap
     puts "Input your first name:" 
     first_name = gets.chomp
@@ -70,11 +66,7 @@ def  check_three_numbers_by_small
     end
 
     for namber in nambers do
-      if namber.to_i <= 10
-        puts true
-      else 
-        puts false
-      end
+        puts number.to_i <= 10
     end
 end
 
@@ -156,8 +148,8 @@ end
 def swap_first_and_last_characters 
     puts "Enter our string: " 
     string = gets.chomp
-    fist_character =  string.split(//).first 
-    last_character =  string.split(//).last
+    fist_character =  string.split.first 
+    last_character =  string.split.last
     midle_character = string[1..-2]
     puts last_character+midle_character+fist_character
 end

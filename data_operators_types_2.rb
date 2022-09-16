@@ -47,7 +47,7 @@ end
 def pogram_to_add_last_character
     puts "Enter our string: " 
     string = gets.chomp
-    last_character =  string.split(//).last
+    last_character =  string.split.last
     puts last_character + string + last_character
 end
 
@@ -82,7 +82,7 @@ def  pogram_to_check_two_non_negative_integer
 
     if namber_one < 0 || namber_two < 0
         puts "Mast be positive"
-    elsif namber_one.to_s.split(//).last == namber_two.to_s.split(//).last
+    elsif namber_one.to_s.split.last == namber_two.to_s.split.last
         puts true
     end 
 end 
