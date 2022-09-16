@@ -10,7 +10,6 @@ def  check_three_numbers_by_greatest
 end
 
 
-
 def  check_three_numbers_by_within
     puts "Input your namber:"
     nambers = gets.to_i
