@@ -1,44 +1,48 @@
-def check_integers_nearest_to_value
-   
-    puts "Enter namber one: " 
-    namber_one = gets.to_i
-    puts "Enter namber two: " 
-    namber_two = gets.to_i
 
-    if namber_one == namber_two
+def  gets_two_numbers
+    puts "Enter namber one: " 
+    @namber_one = gets.to_i
+    puts "Enter namber two: " 
+    @namber_two = gets.to_i    
+end 
+
+def  gets_tree_numbers
+    puts "Enter namber one: " 
+    @namber_one = gets.to_i
+    puts "Enter namber two: " 
+    @namber_two = gets.to_i
+    puts "Enter namber tree: " 
+    @namber_tree = gets.to_i   
+end 
+
+def is_between?(bounds, number)
+    number >= bounds[0] && number <= bounds[1]
+end
+
+def check_integers_nearest_to_value
+    gets_two_numbers
+    if @namber_one == @namber_two
         puts "0"
-    elsif  10 - namber_one  > 10 -namber_two 
-        puts namber_one
+    elsif  10 - @namber_one  > 10 -@namber_two 
+        puts @namber_one
     else
-        puts namber_two
+        puts @namber_two
     end
 end
 
 def check_integers_by_both_range    
-    puts "Enter namber one: " 
-    namber_one = gets.to_i
-    puts "Enter namber two: " 
-    namber_two = gets.to_i
-
-    if namber_one >= 10 && namber_one <= 30 && namber_two >= 10 && namber_two <= 30
-        puts true
-    else
-        puts false
-    end
+    gets_two_numbers
+    puts is_between?([ 10, 20 ],@namber_one) && is_between?([ 10, 20 ] , @namber_two) ? true : false       
 end
 
 def check_integers_by_larger_in_range    
-    puts "Enter namber one: " 
-    namber_one = gets.to_i
-    puts "Enter namber two: " 
-    namber_two = gets.to_i
-
-    if namber_one >= 20 && namber_one <= 30 && namber_two >= 20 && namber_two <= 30
-        puts namber_one > namber_two ?  namber_one :  namber_two               
-    elsif namber_one >= 20 && namber_one <= 30
-        puts namber_one
-    elsif namber_two >= 20 && namber_two <= 30
-        puts namber_two
+    gets_two_numbers
+    if is_between?([ 20, 30 ],@namber_one) && is_between?([ 20, 30 ],@namber_two)
+        puts @namber_one > @namber_two ?  @namber_one :  @namber_two               
+    elsif is_between?([ 20, 30 ],@namber_one)
+        puts @namber_one
+    elsif is_between?([ 20, 30 ],@namber_two)
+        puts @namber_two
     else
         puts 0
     end  
@@ -53,12 +57,9 @@ def check_integers_in_array_by_value_5
 end
 
 def check_integers_by_last_digit  
-    puts "Enter namber one: " 
-    namber_one = gets.to_i
-    puts "Enter namber two: " 
-    namber_two = gets.to_i
-    if namber_one > 0 && namber_two > 0       
-       puts  namber_one.to_s[-1] == namber_two.to_s[-1] ? true : false         
+    gets_two_numbers
+    if @namber_one > 0 && @namber_two > 0       
+        puts  @namber_one.to_s[-1] == @namber_two.to_s[-1]     
     else
        puts "must be positive"
     end
@@ -79,56 +80,43 @@ def check_integers_in_array_by_sequence_10_20_30
 end
 
 def check_integers_either_one_to_11 
-    puts "Enter namber one: " 
-    namber_one = gets.to_i
-    puts "Enter namber two: " 
-    namber_two = gets.to_i
-    if namber_one == 11  || namber_two == 11       
+    gets_two_numbers  
+    if @namber_one == 11  || @namber_two == 11       
       puts  11        
-    elsif namber_one - namber_two == 11
-      puts namber_one - namber_two 
-    elsif namber_one + namber_two == 11
-      puts namber_one + namber_two
+    elsif @namber_one - @namber_two == 11
+      puts @namber_one - @namber_two 
+    elsif @namber_one + @namber_two == 11
+      puts @namber_one + @namber_two
     else 
       puts false       
     end
 end
 
+
 def check_three_integers_less_20
-    puts "Enter namber one: " 
-    namber_one = gets.to_i
-    puts "Enter namber two: " 
-    namber_two = gets.to_i
-    puts "Enter namber tree: " 
-    namber_tree = gets.to_i
-    puts (namber_one - namber_two ).abs >= 20 || (namber_two - namber_tree.abs) >= 20 || ( namber_one - namber_tree).abs >= 20 ? true : false  
+    gets_tree_numbers   
+    puts (@namber_one - @namber_two ).abs >= 20 || (@namber_two - @namber_tree.abs) >= 20 || ( @namber_one - @namber_tree).abs >= 20
 end
 
 
-
 def check_two_integers_large_value_and_divided_5
-    puts "Enter namber one: " 
-    namber_one = gets.to_i
-    puts "Enter namber two: " 
-    namber_two = gets.to_i
-    if namber_one == namber_two
+    gets_two_numbers
+    if @namber_one == @namber_two
       puts 0
-    elsif namber_one % 5 == namber_two % 5
-        puts namber_one > namber_two ? namber_two : namber_one
+    elsif @namber_one % 5 == @namber_two % 5
+        puts @namber_one > @namber_two ? @namber_two : @namber_one
     else
-        puts namber_one > namber_two ? namber_one : namber_two
+        puts @namber_one > @namber_two ? @namber_one : @namber_two
     end
 end
 
 def check_two_in_range_10_99
-    puts "Enter namber one: " 
-    namber_one = gets.to_i
-    puts "Enter namber two: " 
-    namber_two = gets.to_i
-    if namber_one >= 10 && namber_one <= 99 && namber_two >= 10 && namber_two <= 99         
-        if namber_one.to_s[0] == namber_two.to_s[0] || namber_one.to_s[0] == namber_two.to_s[1]
+    gets_two_numbers
+
+    if is_between?([ 10 , 99 ], @namber_one) && is_between?([ 10 , 99 ], @namber_two)    
+        if @namber_one.to_s[0] == @namber_two.to_s[0] || @namber_one.to_s[0] == @namber_two.to_s[1]
             puts true
-        elsif namber_one.to_s[1] == namber_two.to_s[0] || namber_one.to_s[1] == namber_two.to_s[1]
+        elsif @namber_one.to_s[1] == @namber_two.to_s[0] || @namber_one.to_s[1] == @namber_two.to_s[1]
             puts true
         else
             puts false
@@ -186,32 +174,36 @@ def tomorrow_date_time
     puts "Current Date and Time: " + tomorrow.to_s
 end
 
+
+
+def salary_counting(salary, procent = 0)
+     ((salary + salary * procent) * 0.85)
+end 
+
+
 def exercise_calculate_salary
     salary_array = [3000,2000,1000] 
     for salary in salary_array do 
         puts "Salary = #{salary}"       
-        puts "Salary 0 - 2 year = " + (salary*0.85 ).to_s
-        puts "Salary 2 - 5 year = "  +  ((salary + salary * 0.10) * 0.85).to_s
-        puts "Salary 5 - 10 year = "  + ((salary + salary * 0.20) * 0.85).to_s
-        puts "Salary 10+ year = "  + ((salary + salary * 0.30) * 0.85).to_s  
+        puts "Salary 0 - 2 year = " + salary_counting(salary).to_s
+        puts "Salary 2 - 5 year = "  +  salary_counting(salary, 0.1).to_s
+        puts "Salary 5 - 10 year = "  + salary_counting(salary, 0.2).to_s
+        puts "Salary 10+ year = "  + salary_counting(salary, 0.3).to_s  
     end 
 end
 
+
+
+
 def exercise_four_digit_number
     puts "Enter four digit number " 
-    number = gets.to_s
-    nambers_array = []
-
-    for i in (0..3)    
-        nambers_array[i] = number[i].to_i
-    end  
-
-    if number.size - 1  != 4
+    numbers = gets.to_s
+    if numbers.size - 1  != 4
       puts false     
     else      
-      puts (nambers_array[0]+nambers_array[1]+nambers_array[2]+nambers_array[3])
-      puts nambers_array.uniq.size < 4 ? "have the same numbers" : "haven`t the same numbers" 
-      puts (nambers_array[0]+nambers_array[1]) != (nambers_array[2]+nambers_array[3]) ? "the sums  digits different" : "the sums  digits not different" 
+      puts (numbers[0].to_i + numbers[1].to_i + numbers[2].to_i + numbers[3].to_i)
+      puts numbers.chars.uniq.size - 1 < 4 ? "have the same numbers" : "haven`t the same numbers" 
+      puts (numbers[0].to_i+numbers[1].to_i) != (numbers[2].to_i+numbers[3].to_i) ? "the sums  digits different" : "the sums  digits not different" 
     end 
 end
 
@@ -225,13 +217,14 @@ def exercise_car_parking
     cost_by_hour = gets.to_i
 
     split_enter_time =  enter_time.split(":")
-    split_departure_time = departure_time.split(":")    
-    full_min= ((split_departure_time[0].to_i * 60)+split_departure_time[1].to_i) -(( split_enter_time[0].to_i * 60) + split_enter_time[1].to_i)
+    split_departure_time = departure_time.split(":") 
+    get_enter_min = (split_enter_time[0].to_i * 60) + split_enter_time[1].to_i
+    get_departure_min = (split_departure_time[0].to_i * 60)+split_departure_time[1].to_i
+
+    difference_min = get_departure_min - get_enter_min
     
-    full_hour = full_min / 60 
-    if full_min % 60 > 10
-        full_hour += 1
-    end 
+    full_hour = difference_min / 60 
+    full_hour += 1 if difference_min % 60 > 10
     total_cost = full_hour * cost_by_hour
     puts "time to enter the parking #{enter_time}" 
     puts "time to departure the parking #{departure_time}"
