@@ -30,7 +30,7 @@ end
 
 def check_integers_by_both_range
   gets_two_numbers
-  puts is_between?([10, 20], @namber_one) && is_between?([10, 20], @namber_two) ? true : false
+  puts is_between?([10, 20], @namber_one) && is_between?([10, 20], @namber_two) 
 end
 
 def check_integers_by_larger_in_range
