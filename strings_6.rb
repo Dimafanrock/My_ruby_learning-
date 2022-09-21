@@ -8,11 +8,7 @@ def search_for_a_sign(sign)
       when "*"
         new_value = [(@array_string[i - 1].to_i * @array_string[i + 1].to_i).to_s]       
       when "/"
-        new_value = [(@array_string[i - 1].to_i / @array_string[i + 1].to_i).to_s]      
-      when "-"
-        new_value = [(@array_string[i - 1].to_i - @array_string[i + 1].to_i).to_s]      
-      when "+"      
-        new_value = [(@array_string[i - 1].to_i + @array_string[i + 1].to_i).to_s]        
+        new_value = [(@array_string[i - 1].to_i / @array_string[i + 1].to_i).to_s] 
       else         
       end
       old_part = @array_string[i - 1] + @array_string[i] + @array_string[i + 1]
@@ -22,6 +18,20 @@ def search_for_a_sign(sign)
   end
 end
 
+def simpl_arithmetic
+    i = 1
+    resoult = @array_string[0].to_i
+  while i < @array_string.size
+    if @array_string[i] == "+"
+       resoult = resoult + @array_string[i+1].to_i
+    elsif @array_string[i] == "-"
+        resoult = resoult - @array_string[i+1].to_i
+    end
+    i += 1
+  end
+  puts resoult
+end 
+
 def get_array_string(my_string)
     my_string.gsub(' ', '').split(/(\d+\.?\d*)/).reject(&:empty?)    
 end
@@ -30,9 +40,7 @@ def arithmetic_expression(my_string)
   @array_string = get_array_string(my_string)
   search_for_a_sign("*")
   search_for_a_sign("/")
-  search_for_a_sign("+")
-  search_for_a_sign("-")
-  puts @array_string.to_s
+  simpl_arithmetic
 end
 
 puts 'Enter your text:'
