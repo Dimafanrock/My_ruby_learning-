@@ -1,14 +1,16 @@
-@string_array  =  ["String one", "String two","String tree" ]
+# frozen_string_literal: true
 
-def insert_in_array(array  = @string_array,my_string)
-    array.push(my_string)
-end 
+@string_array = ['String one', 'String two', 'String tree']
 
-def delete_from_array(array = @string_array,my_string)
-    array.delete_if {|i| i == my_string}
+def insert_in_array(array = @string_array, my_string)
+  array.push(my_string)
 end
 
-insert_in_array( @string_array ,"Test one")
+def delete_from_array(array = @string_array, my_string)
+  array.delete_if { |i| i == my_string }
+end
+
+insert_in_array(@string_array, 'Test one')
 puts @string_array
-delete_from_array( @string_array ,"Test one")
+delete_from_array(@string_array, 'Test one')
 puts @string_array
