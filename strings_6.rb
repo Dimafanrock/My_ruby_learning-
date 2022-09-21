@@ -28,16 +28,29 @@ def simpl_arithmetic
         resoult = resoult - @array_string[i+1].to_i
     end
     i += 1
-  end
-  puts resoult
+  end  
 end 
 
 def get_array_string(my_string)
-    my_string.gsub(' ', '').split(/(\d+\.?\d*)/).reject(&:empty?)    
+    my_string.gsub(' ', '').split(/(\d+\.?\d*)/).reject(&:empty?) 
+end
+
+
+def test_sting(my_string) 
+   new_string_hesh = Hash.new   
+   i = 1    
+   while i < my_string.size
+    if my_string[i] == "("
+    else    
+    end
+    i += 1  
+   end
+   puts new_string_hesh.to_s
 end
 
 def arithmetic_expression(my_string)
-  @array_string = get_array_string(my_string)
+  @array_string = get_array_string(my_string)  
+  test_sting(my_string)  
   search_for_a_sign("*")
   search_for_a_sign("/")
   simpl_arithmetic
