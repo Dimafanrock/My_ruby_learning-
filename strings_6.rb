@@ -1,59 +1,80 @@
 # frozen_string_literal: true
 
-def search_for_a_sign(sign)
-  i = 1
-  while i < @array_string.size
-    if @array_string[i] == sign      
-      case sign
-      when "*"
-        new_value = [(@array_string[i - 1].to_i * @array_string[i + 1].to_i).to_s]       
-      when "/"
-        new_value = [(@array_string[i - 1].to_i / @array_string[i + 1].to_i).to_s] 
-      else         
-      end
-      old_part = @array_string[i - 1] + @array_string[i] + @array_string[i + 1]
-      @array_string = @array_string[0...i - 1] + new_value + @array_string[i + 2...@array_string.size]      
+def search_for_a_sign(array)
+  while array.include?('*')
+    i = array.index('*')
+    new_value = [(array[i - 1].to_i * array[i + 1].to_i).to_s]
+    array = array[0...i - 1] + new_value + array[i + 2..array.size]
+
+  end
+
+  while array.include?('/')
+    i = array.index('/')
+    new_value = [(array[i - 1].to_i / array[i + 1].to_i).to_s]
+    array = array[0...i - 1] + new_value + array[i + 2..array.size]
+
+  end
+
+  while array.include?('+')
+    i = array.index('+')
+    new_value = [(array[i - 1].to_i + array[i + 1].to_i).to_s]
+    array = array[0...i - 1] + new_value + array[i + 2..array.size]
+
+  end
+
+  while array.include?('-')
+    i = array.index('-')
+    new_value = [(array[i - 1].to_i - array[i + 1].to_i).to_s]
+    array = array[0...i - 1] + new_value + array[i + 2..array.size]
+
+  end
+  array
+end
+
+def find_brackets_and_dgits(my_string)
+  i = 0
+  @array_with_full_digits = []
+  full_digit = ''
+  while i < my_string.size
+    if my_string[i][/^\d+$/]
+      full_digit += my_string[i]
+    else
+      @array_with_full_digits << full_digit if full_digit != ''
+      @array_with_full_digits << my_string[i]
+      full_digit = ''
     end
     i += 1
   end
+  @array_with_full_digits << full_digit if full_digit != ''
 end
 
-def simpl_arithmetic
-    i = 1
-    resoult = @array_string[0].to_i
-  while i < @array_string.size
-    if @array_string[i] == "+"
-       resoult = resoult + @array_string[i+1].to_i
-    elsif @array_string[i] == "-"
-        resoult = resoult - @array_string[i+1].to_i
-    end
-    i += 1
-  end  
-end 
-
-def get_array_string(my_string)
-    my_string.gsub(' ', '').split(/(\d+\.?\d*)/).reject(&:empty?) 
+def testing_by_brackets(my_string)
+  @count_brackets = my_string.count('(') + my_string.count(')')
+  @count_brackets.even?
 end
 
+def arithmetic_in_brackets
+  while @array_with_full_digits.include?('(')
+    open_brackets = @array_with_full_digits.index('(')
+    close_bracket = @array_with_full_digits.index(')')
+    start = @array_with_full_digits[open_brackets..close_bracket]
+    new_value = [search_for_a_sign(start)[1]]
+    @array_with_full_digits = @array_with_full_digits[0...open_brackets] + new_value + @array_with_full_digits[close_bracket + 1..@array_with_full_digits.size]
+  end
+end
 
-def test_sting(my_string) 
-   new_string_hesh = Hash.new   
-   i = 1    
-   while i < my_string.size
-    if my_string[i] == "("
-    else    
-    end
-    i += 1  
-   end
-   puts new_string_hesh.to_s
+def arithmetic_out_brackets
+  puts search_for_a_sign(@array_with_full_digits)
 end
 
 def arithmetic_expression(my_string)
-  @array_string = get_array_string(my_string)  
-  test_sting(my_string)  
-  search_for_a_sign("*")
-  search_for_a_sign("/")
-  simpl_arithmetic
+  if testing_by_brackets(my_string)
+    find_brackets_and_dgits(my_string)
+    arithmetic_in_brackets
+    arithmetic_out_brackets
+  else
+    puts 'not closed or open brackets'
+  end
 end
 
 puts 'Enter your text:'
