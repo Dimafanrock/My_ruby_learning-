@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def in_words(int)
   numbers_to_name = {
     1_000_000 => 'million',
@@ -33,15 +35,15 @@ def in_words(int)
   }
   str = ''
   numbers_to_name.each do |num, name|
-    if int == 0
+    if int.zero?
       return str
-    elsif int.to_s.length == 1 && int / num > 0
-      return str + "#{name}"
-    elsif int < 100 && int / num > 0
-      return str + "#{name}" if int % num == 0
+    elsif int.to_s.length == 1 && (int / num).positive?
+      return str + name.to_s
+    elsif int < 100 && (int / num).positive?
+      return str + name.to_s if (int % num).zero?
 
       return str + "#{name} " + in_words(int % num)
-    elsif int / num > 0
+    elsif (int / num).positive?
       return str + in_words(int / num) + " #{name} " + in_words(int % num)
     end
   end
@@ -65,7 +67,7 @@ def number_to_string(number)
     split_if_dot(number)
     get_whole_part(@splited_whole)
     fractional_part(@splited_fractional)
-    puts @whole_part_string + ' dot ' + @fractional_part_string
+    puts "#{@whole_part_string} dot #{@fractional_part_string}"
   else
     get_whole_part(number)
     puts @whole_part_string
