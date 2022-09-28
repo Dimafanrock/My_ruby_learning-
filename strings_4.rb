@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-@string_array = ['String one', 'String two', 'String tree']
+@string_array = ['String one', 'String two', 'String three']
 
 def insert_in_array(array = @string_array, my_string)
   array.push(my_string)
