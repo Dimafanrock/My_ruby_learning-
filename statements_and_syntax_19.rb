@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-def get_difference(array)
+def sum(array)
   array.sort!
   array.shift
   array.pop
@@ -10,4 +10,4 @@ def get_difference(array)
 end
 
 array = [1, 12, 13, 15, 2, 2, 4, 5, 6, 7, 9]
-puts get_difference(array)
+puts array.sum

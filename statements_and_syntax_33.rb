@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-def sort_by_lenght(array)
+def sort_by_length(array)
   n = array.length
   loop do
     swapped = false
@@ -19,4 +19,4 @@ def sort_by_lenght(array)
 end
 
 array_one = %w[abcde abdf adeab abdgeee bdefa abc ab a bacdef]
-puts sort_by_lenght(array_one)
+puts sort_by_length(array_one)

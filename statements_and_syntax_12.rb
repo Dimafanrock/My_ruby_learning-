@@ -2,7 +2,7 @@
 
 def new_array_less_last_first(array)
   new_array = []
-  array.last > array.first ? array.each { |_x| new_array << array.last } : array.each { |_x| new_array << array.first }
+  array.each { |_x| new_array << [array.first, array.last].max }
   new_array
 end
 
