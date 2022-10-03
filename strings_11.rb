@@ -2,7 +2,7 @@ def find_word_in_text(string, word)
   string = string.split(/\W+/)
   i = 0
   string.each { |x| i += 1 if x == word }
-  puts " #{word} find #{i} times"
+  puts " #{word} found #{i} times"
 end
 
 puts 'Enter your text:'

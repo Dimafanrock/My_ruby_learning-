@@ -70,12 +70,8 @@ def in_words(string)
   number
 end
 
-def get_whole_part(splited)
-  @whole_part_string = in_words(splited)
-end
-
-def fractional_part(splited)
-  @fractional_part_string = in_words(splited)
+def get_part(splited)
+  @part_string = in_words(splited)
 end
 
 def split_if_dot(string)
@@ -85,12 +81,12 @@ end
 def number_to_string(string)
   if string.include?('dot')
     split_if_dot(string)
-    get_whole_part(@splited_whole)
-    fractional_part(@splited_fractional)
-    puts "#{@whole_part_string}.#{@fractional_part_string}"
+    get_part(@splited_whole)
+    get_part(@splited_fractional)
+    puts "#{@part_string}.#{@part_string}"
   else
-    get_whole_part(string)
-    puts @whole_part_string
+    get_part(string)
+    puts @part_string
   end
 end
 

@@ -73,7 +73,7 @@ def arithmetic_expression(my_string)
     arithmetic_in_brackets
     arithmetic_out_brackets
   else
-    puts 'not closed or open brackets'
+    puts 'not closed or opened brackets'
   end
 end
 

@@ -5,11 +5,9 @@ def check_string(string)
   end
   reverse_string_array = string_array.reverse
   puts palindrome_check(string_array, reverse_string_array)
-end
-
-def palindrome_check(string_array, reverse_string_array)
   string_array == reverse_string_array
 end
+
 
 puts 'Enter your text:'
 number = gets.chomp
