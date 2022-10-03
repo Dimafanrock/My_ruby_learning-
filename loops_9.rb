@@ -3,6 +3,6 @@ def full_array
   yield(a)
 end
 
-full_array do |number|
-  number.each { |x| puts x.to_s + ' banana' }
+full_array do |numbers|
+  numbers.each { |x| puts x.to_s + ' banana' }
 end
