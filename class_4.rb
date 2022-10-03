@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 class MyPowClass
-  def initialize(x, n)
-    @x = x
-    @n = n
+  def initialize(string)
+    @string = string
   end
 
-  def pow
-    @x**@n
+  def check
+    
   end
 end
 
