@@ -8,11 +8,11 @@ class Circle
   end
 
   def area
-    area = PI * (@radius**2)
+     PI * (@radius**2)
   end
 
   def perimeter
-    perimeter = 2 * PI * @radius
+     2 * PI * @radius
   end
 end
 
