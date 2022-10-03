@@ -5,9 +5,7 @@ class MyPowClass
     @string = string
   end
 
-  def check
-    
-  end
+  def check; end
 end
 
 my_pow_class = MyPowClass.new(10, 2)
