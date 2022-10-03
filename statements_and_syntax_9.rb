@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-def split_string_to_array(test_array)
-  test_array = test_array.split(',')
-  puts test_array.to_s
+def split_string_to_array(string)
+  string = string.split(',')
+  puts string.to_s
 end
 
 test_string = '1, 3, 4, 5, 7'

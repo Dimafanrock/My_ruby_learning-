@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-def sum(array)
-  array.each { |x| sum += x }
-end
-
 def get_sum(array)
   index = array.index(17)
   sum = 0

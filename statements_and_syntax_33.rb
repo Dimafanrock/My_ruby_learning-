@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 def sort_by_length(array)
-  n = array.length
+  
   loop do
     swapped = false
 
-    (n - 1).times do |i|
+    (array.length - 1).times do |i|
       if array[i].length > array[i + 1].length
         array[i], array[i + 1] = array[i + 1], array[i]
         swapped = true

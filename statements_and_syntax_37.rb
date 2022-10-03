@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-def swapping_columns(array, _first, _second)
+def swapping_columns(array, first, second)
   i = 0
   while i < array.length
     j = 0
     while j < array.length
-      array[i][j] = array [_second][_first]
+      array[i][j] = array [second][first]
       j += 1
     end
 
